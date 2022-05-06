@@ -1,0 +1,62 @@
+# NAME: 'random_erase_swinTrans.b_24_large_csra8_0.3.adam'
+NAME: 'trainBswinTrans.b_24_large.adam'
+
+
+# PIPELINE: 'Swin_SSCA'
+
+DATASET:
+  TYPE: 'PAR'
+  NAME: 'PAReg'
+  TRAIN_SPLIT: 'train'
+  VAL_SPLIT: 'val'
+  ZERO_SHOT: False
+  LABEL: 'eval'
+  HEIGHT: 256
+  WIDTH: 192
+
+RELOAD:
+  TYPE: False
+  NAME: 'backbone'
+  # PTH: 'ckpt_max_2022-02-28_14:55:08.pth'
+
+BACKBONE:
+  # TYPE: 'resnet50'
+#  TYPE: 'bninception'
+#  TYPE: 'tresnetM'
+ # TYPE: 'swin_s'
+ TYPE: 'swin_l'
+
+#  TYPE: 'vit_s'
+#  TYPE: 'vit_b'
+
+CLASSIFIER:
+  NAME: 'linear'
+  POOLING: 'avg'
+  SCALE: 1
+  BN: False
+
+LOSS:
+  TYPE: 'bceloss'
+  LOSS_WEIGHT: [1]
+  SAMPLE_WEIGHT: 'weight'
+
+
+TRAIN:
+  CLIP_GRAD: True
+  BATCH_SIZE: 16
+  OPTIMIZER:
+    TYPE: 'adam'
+    WEIGHT_DECAY: 5e-4
+  LR_SCHEDULER:
+    TYPE: 'plateau'
+    LR_FT: 0.0001
+    LR_NEW: 0.0001
+  EMA:
+    ENABLE: False
+  MAX_EPOCH: 15
+
+METRIC:
+  TYPE: 'pedestrian'
+
+VIS:
+  CAM: 'valid'
