@@ -15,28 +15,27 @@
 
    - **数据增强**
 
-     - [x] Random rotate/Erase
-     - [x] Multi-Scale Traning/Test
+     - Random rotate/Erase
+     - Multi-Scale Traning/Test
 
    - ##### 尝试的**Backbone**：
 
-     - [x] ResNet
-
-     - [x] CoatNet
-
-     1. [x] ConvNext
-
-     1. [x] Vit
-
-     1. [ ] swin-transformer
+     - ResNet
+     - CoatNet
+     - ConvNext
+     - Vit
+     - swin-transformer
 
    - **尝试的Neck**
-     - [x] ALM (个人的实现方式) [1]
-     - [x] FPN (常规FPN)
+
+     - ALM (个人的实现方式) [1]
+     - FPN (常规FPN)
+   
    - **尝试的Head**
-     - [x] Linear Layer (wi/o BN)
-     - [x] CSRA [2]
-     - [x] MSSC [3]
+   
+     - Linear Layer (wi/o BN)
+     - CSRA [2]
+     - MSSC [3]
 
 ## Get Started
 
